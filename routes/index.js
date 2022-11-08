@@ -1,9 +1,8 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express')
+const postsRouter = require('../routes/posts')
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+const routePrefix = '/api'
 
-module.exports = router;
+module.exports = (app) => {
+   app.use(routePrefix + '/posts', postsRouter)
+}
